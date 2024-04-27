@@ -1,0 +1,13 @@
+<%- include("partials/header") -%>
+<h1>Compose</h1>
+<form action = "/compose" method="post" class="form-group">
+    <label>Title</label><br>
+    <input class = "form-control" value="<%= post.titleData %>" type = "text" name = "title">
+    <label>Post</label>
+    <textarea class = "form-control"  rows = "6" cols = "150" name = "post"><%= post.postData %></textarea><br>
+    <button class = "btn btn-primary"type = "submit" value = "submit" name = "button">Publish</button>
+    <input type = "hidden" name = "postId" value = "<%= post._id %>">
+</form>
+<a href="/"><button class="fs-6 button button-back rounded text-light"><img class="mx-2 text-light" width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/circled-left-2.png" alt="circled-left-2"/>Back</button></a>
+
+<%- include("partials/footer") -%>

@@ -1,0 +1,36 @@
+<%- include("partials/header") -%>
+<h1>HOME</h1>
+<p> <%= content %> </p>
+<% for(let i = 0;i<posts_.length ; i++){ %>
+    <div class="border border-3 border-secondary-subtle rounded mb-2 p-2">
+        <table>
+            <tr>
+                <th><h1 class = "p-1" name = "postName" value ="<%= posts_[i].titleData %>" ><%= posts_[i].titleData %></h1></th>
+                <form action = "/delete" method="post"> 
+                    <th class="px-5">
+                        <button class = "delButton" name = "blgDel" value= "<%= posts_[i]._id %>" type="submit">
+                            <img width="20" height="20"  src="https://img.icons8.com/material-rounded/24/000000/filled-trash.png" alt="filled-trash"/>
+                        </button>
+                    </th>
+                </form>
+                <form action = "/update" method="post"> 
+                    <th class="">
+                        <button class = "btn btn-secondary" name = "update" value= "<%= posts_[i]._id %>" type="submit" >
+                            Update
+                        </button>
+                    </th>
+                </form>
+                
+            </tr>
+        </table>
+        
+        <% let postSubData = posts_[i].postData.substring(0,100)+"..."; %>
+        <p> <%= postSubData %> <a href="/posts/<%= posts_[i].titleData %>">Read More</a></p>
+    </div>
+    
+<%}%>
+<div>
+    <a href="/compose"><button class=" button text-light ">+</button></a>
+</div>
+
+<%- include("partials/footer") -%>
